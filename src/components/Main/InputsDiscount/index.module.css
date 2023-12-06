@@ -1,0 +1,139 @@
+.mainInputDiscountDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(261deg, #0b710b 32.63%, #393 98.96%);
+  margin: 1vw 1vw;
+}
+
+.h2InputDiscount {
+  margin: 1vh 18vw;
+  color: white;
+  text-align: center;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.secondInputDiscountDiv {
+  display: flex;
+}
+
+.imgDiscountInput {
+  width: 55vw;
+  height: 55vh;
+  max-width: 1250px;
+}
+
+.inputsBtnDiscount {
+  display: flex;
+  flex-direction: column;
+  width: 42vw;
+}
+
+.firstInput {
+  padding: 2vh 9vw;
+  padding-left: 2vw;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background-color: #ffebcd03;
+  margin: 1vh 4vw;
+  margin-top: 3vh;
+  color: white;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.firstInput::placeholder {
+  color: #fff;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.firstInput:focus {
+  outline: none;
+}
+
+.inputs {
+  padding: 2vh 3vw;
+  padding-left: 2vw;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background-color: #ffebcd03;
+  margin: 1vh 4vw;
+  color: white;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.inputs::placeholder {
+  color: #fff;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.inputs:focus {
+  outline: none;
+}
+
+.btnDiscountInput {
+  display: flex;
+  padding: 2vh 3vw;
+  justify-content: center;
+  padding-left: 2vw;
+  border-radius: 6px;
+  background-color: white;
+  border: 0;
+  margin: 1vh 4vw;
+
+  display: flex;
+  padding: 2vh 3vw;
+  justify-content: center;
+  padding-left: 2vw;
+  border-radius: 6px;
+  background-color: white;
+  border: 0;
+  margin: 1vh 4vw;
+  color: #282828;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btnDiscountInput:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.pError {
+  padding-left: 2vw;
+  margin: 6vh 4vw;
+  margin-bottom: 0;
+  color: white;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+@media screen and (max-width: 560px) {
+  .imgDiscountInput {
+    display: none;
+  }
+}

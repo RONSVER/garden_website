@@ -1,0 +1,104 @@
+.h2Footer {
+  color: #282828;
+  font-size: 6.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 70.4px */
+  padding: 2vh 2vw;
+}
+
+.divFooter {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerMainBoxContacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 27px;
+  justify-content: center;
+}
+
+.mixShortAndLongBox {
+  display: flex;
+}
+
+.social {
+  padding: 1vh 3.2vw;
+  padding-left: 1vw;
+  padding-right: 27vw;
+}
+
+.phone {
+  padding: 1vh 2vh;
+  padding-right: 21vw;
+}
+
+.addressDiv {
+  padding: 1vh 3.2vh;
+  padding-right: 9vw;
+}
+
+.Hours {
+  padding: 1vh 5vw;
+  padding-left: 1vw;
+}
+
+/* to p in address */
+
+.address .pFooter {
+  font-size: 3rem;
+}
+
+.footerBoxsContactsLong {
+  border-radius: 12px;
+  background-color: #f1f3f4;
+  display: flex;
+
+  flex-direction: column;
+}
+
+.footerBoxsContactsShort {
+  border-radius: 12px;
+  background-color: #f1f3f4;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.spanNamingFooter {
+  color: #8b8b8b;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 26px */
+}
+
+.pFooter {
+  color: #282828;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
+  text-decoration: none;
+}
+
+.insta {
+  padding: 1vh 0;
+}
+
+.whatsapp {
+  padding: 1vh 0;
+  padding-left: 1vw;
+}
+
+.linkApps {
+}
+
+.map {
+  padding: 2vh 2vw;
+  margin-top: 1vh;
+  width: 99vw;
+  height: 55vh;
+  max-width: 2000px;
+}

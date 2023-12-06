@@ -1,0 +1,47 @@
+.navBarDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 9vw;
+  max-width: 2000px;
+  padding: 1vh 2vh;
+}
+
+.logo {
+  width: 70px;
+  max-width: 47px;
+  padding: 1vh 0;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.ulNav {
+  display: flex;
+  gap: 2vw;
+  padding: 0;
+  align-items: center;
+}
+
+.liNav {
+  color: #282828;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 26px */
+  list-style-type: none;
+  transition: color 0.2s;
+}
+
+.liNav:hover {
+  color: #339933;
+  cursor: pointer;
+}
+
+.cartLogo {
+  width: 30px;
+}
+
+.cartLogo:hover {
+  cursor: pointer;
+}

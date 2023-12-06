@@ -1,0 +1,80 @@
+.divMain {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 3vh;
+}
+
+.divCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 43vh;
+  width: 17vw;
+}
+
+.divCategoriesMain {
+  display: flex;
+  flex-direction: column;
+  padding: 3vh 3vw;
+}
+
+.divCategories {
+  display: flex;
+  align-items: center;
+}
+
+.h2Categories {
+  color: #282828;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  padding-right: 3vw;
+}
+
+.lineRight {
+  width: 100%;
+  height: 1px;
+  margin-top: 3.5vh;
+  background: #ddd;
+}
+
+.btnAllCategories {
+  width: 100%;
+  max-width: 128px;
+  padding: 1vh 1vw;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: none;
+  margin-top: 3vh;
+  color: #8b8b8a;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126%;
+  transition: 1s;
+}
+
+.btnAllCategories:hover {
+  cursor: pointer;
+  background-color: #e8e8e8;
+}
+
+.photoCategories {
+  height: 36vh;
+  width: 17vw;
+  border-radius: var(--radius-big, 12px);
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.NameP {
+  margin-top: 1vh;
+  color: var(--txt-black, #282828);
+  text-align: center;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
