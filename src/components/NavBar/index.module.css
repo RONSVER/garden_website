@@ -1,9 +1,21 @@
+.addaptivMain {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalNav {
+  position: absolute;
+}
+
 .navBarDiv {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 9vw;
   max-width: 2000px;
   padding: 1vh 2vh;
+  position: relative;
 }
 
 .logo {
@@ -24,24 +36,69 @@
 }
 
 .liNav {
+  list-style-type: none;
+}
+
+.linksNavBar {
   color: #282828;
   font-size: 1em;
   font-style: normal;
   font-weight: 500;
   line-height: 130%; /* 26px */
-  list-style-type: none;
   transition: color 0.2s;
+  text-decoration: none;
 }
 
-.liNav:hover {
+.linksNavBar:hover {
   color: #339933;
   cursor: pointer;
 }
 
 .cartLogo {
   width: 30px;
+  /* display: none; */
 }
 
 .cartLogo:hover {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 5980px) {
+  .ulNav {
+    gap: 1vw;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .cartLogo {
+    display: none;
+  }
+
+  .addaptivMain {
+    display: flex;
+  }
+
+  .logo {
+    padding-left: 1vw;
+    max-width: 43px;
+  }
+
+  .ulNav {
+    display: none;
+  }
+
+  .navBarDiv {
+    justify-content: center;
+    gap: 37vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navBarDiv {
+    padding: 1vh 0;
+  }
 }

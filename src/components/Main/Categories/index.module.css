@@ -1,6 +1,6 @@
 .divMain {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 2vw;
   margin-top: 3vh;
 }
@@ -11,12 +11,13 @@
   text-align: center;
   height: 43vh;
   width: 17vw;
+  max-width: 297px;
 }
 
 .divCategoriesMain {
   display: flex;
   flex-direction: column;
-  padding: 3vh 3vw;
+  padding: 3vh 2vw;
 }
 
 .divCategories {
@@ -43,7 +44,7 @@
 .btnAllCategories {
   width: 100%;
   max-width: 128px;
-  padding: 1vh 1vw;
+  padding: 1vh 0vw;
   border-radius: 6px;
   border: 1px solid #ddd;
   background: none;
@@ -59,6 +60,10 @@
 .btnAllCategories:hover {
   cursor: pointer;
   background-color: #e8e8e8;
+}
+
+.divCard:hover {
+  cursor: pointer;
 }
 
 .photoCategories {
@@ -77,4 +82,24 @@
   font-style: normal;
   font-weight: 500;
   line-height: 130%;
+}
+
+@media screen and (max-width: 604px) {
+  .NameP {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 2990px) {
+  .divCard {
+    height: auto;
+  }
+}
+@media screen and (min-width: 4485px) {
+  .h2Categories {
+    font-size: 4rem;
+
+    padding-right: 2vw;
+    margin-top: 2.5vh;
+  }
 }

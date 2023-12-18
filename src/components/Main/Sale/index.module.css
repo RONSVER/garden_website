@@ -1,10 +1,19 @@
-.h2Categories {
+.h2Sale {
   color: #282828;
   font-size: 3rem;
   font-style: normal;
   font-weight: 700;
   line-height: 110%;
-  padding-right: 3vw;
+  padding-right: 2vw;
+}
+
+.divSaleMain {
+  padding: 3vh 2vw;
+}
+
+.divSale {
+  display: flex;
+  align-items: center;
 }
 
 .lineRight {
@@ -14,10 +23,10 @@
   background: #ddd;
 }
 
-.btnAllCategories {
+.btnAllSale {
   width: 100%;
   max-width: 128px;
-  padding: 1vh 1vw;
+  padding: 1vh 0vw;
   border-radius: 6px;
   border: 1px solid #ddd;
   background: none;
@@ -28,4 +37,174 @@
   font-weight: 500;
   line-height: 126%;
   transition: 1s;
+}
+
+.linkSale {
+  color: #8b8b8a;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126%;
+  transition: 1s;
+  text-decoration: none;
+}
+
+.btnAllSale:hover {
+  cursor: pointer;
+  background-color: #e8e8e8;
+}
+
+.cardsSale {
+  height: 42vh;
+  width: 100%;
+  border-radius: var(--radius-big, 12px);
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.saleCardDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+  margin-top: 3vh;
+}
+
+.saleCard:hover {
+  cursor: pointer;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageButton {
+  color: var(--txt-white, #fff);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Плавное появление */
+  border-radius: var(--radius-small, 6px);
+  background: var(--green, #393);
+  display: flex;
+  width: 16vw;
+  padding: 2vh 0vw;
+  justify-content: center;
+  max-width: 239px;
+  max-height: 50px;
+}
+
+.imageContainer:hover .imageButton {
+  opacity: 1;
+}
+
+.imageButton:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.saleDiscount {
+  position: absolute;
+  top: 8%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 4px;
+  font-size: 1rem;
+  border-radius: var(--radius-small, 6px);
+  background: var(--green, #393);
+}
+
+.h3Cards {
+  color: var(--txt-black, #282828);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 1vh 1vw;
+}
+
+.spanOriginalPrice {
+  color: var(--txt-grey, #8b8b8b);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: line-through;
+}
+
+.spanPrice {
+  font-size: 3rem;
+  margin: 0 1vw;
+  color: var(--txt-black, #282828);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%; /* 44px */
+}
+
+.saleImageContainer {
+  border-radius: var(--radius-big, 12px);
+  border: 1px solid var(--grey-divider, #ddd);
+  padding-bottom: 3vh;
+}
+
+.saleCardDivShow {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2vw;
+  margin-top: 3vh;
+}
+
+@media screen and (max-width: 910px) {
+  .saleDiscount {
+    left: 53%;
+  }
+
+  .imageButton {
+    top: 36%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .spanOriginalPrice {
+    font-size: 1rem;
+  }
+
+  .spanPrice {
+    font-size: 2rem;
+  }
+
+  .imageButton {
+    top: 32%;
+  }
+}
+@media screen and (min-width: 2990px) {
+  .saleImageContainer {
+    max-width: 302px;
+  }
+
+  .imageButton {
+    top: 32%;
+  }
+}
+
+@media screen and (min-width: 4485px) {
+  .h2Sale {
+    font-size: 4rem;
+    padding-right: 1vw;
+    margin-top: 2.5vh;
+  }
+
+  .spanOriginalPrice {
+    font-size: 20px;
+  }
 }

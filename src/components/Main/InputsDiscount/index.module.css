@@ -136,4 +136,28 @@
   .imgDiscountInput {
     display: none;
   }
+
+  .h2InputDiscount {
+    font-size: 2rem;
+  }
+
+  .secondInputDiscountDiv {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 2566px) {
+  .imgDiscountInput {
+    max-width: 1050px;
+  }
+}
+@media screen and (min-width: 3932px) {
+  .imgDiscountInput {
+    display: none;
+  }
+
+  .h2InputDiscount {
+    margin: 2vh 2vw;
+    font-size: 7rem;
+  }
 }

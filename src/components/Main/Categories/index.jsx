@@ -1,38 +1,39 @@
 import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
 
-export async function getFetch(url, stateData) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    stateData(data);
-  } catch (error) {
-    console.error("Ошибка запроса:", error.message);
-    throw error;
-  }
-}
+// import { getAllCategories } from "./requests/categoriesRequest";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCategories } from "../../../requests/categoriesRequest";
 
-function Categories() {
-  const [categoryData, setCategoryData] = useState([]);
+function Categories({ show }) {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories.categoriesList);
 
   useEffect(() => {
-    getFetch("http://localhost:3333/categories/all", setCategoryData);
-  }, []);
+    dispatch(getAllCategories());
+  }, [dispatch]);
+
+  const slicesArr = show ? categories.slice(0, -1) : categories;
 
   return (
     <div className={styles.divCategoriesMain}>
       <div className={styles.divCategories}>
         <h2 className={styles.h2Categories}>Categories</h2>
-        <div className={styles.lineRight}></div>
-        <button className={styles.btnAllCategories}>All categories</button>
+        {show ? (
+          <>
+            <div className={styles.lineRight}></div>{" "}
+            <button className={styles.btnAllCategories}>All categories</button>
+          </>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={styles.divMain}>
-        {categoryData.map((el) => (
-          <div className={styles.divCard}>
+        {slicesArr.map((el) => (
+          <div key={el.id} className={styles.divCard}>
             <img
               className={styles.photoCategories}
-              key={el.id}
               src={`http://localhost:3333${el.image}`}
               alt={`Category ${el.id}`}
             />

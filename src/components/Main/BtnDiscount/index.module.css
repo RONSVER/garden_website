@@ -39,30 +39,41 @@
   transform: scaleX(-1);
 }
 
-/* @media screen and (max-width: 435px) {
+@media screen and (max-width: 835px) {
   .h2DiscountBtn {
     font-size: 83px;
+  }
+
+  .btnDiscount {
+    padding: 4vh 4vw;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .h2DiscountBtn {
+    font-size: 63px;
+  }
+
+  .btnDiscount {
+    padding: 2vh 4vw;
+    margin-left: 33vw;
+    font-size: 1rem;
   }
 
   .divDiscountBtn {
     text-align: center;
   }
+}
 
+@media screen and (min-width: 2051px) {
   .btnDiscount {
-    display: flex;
-    padding: 3vh 29vw;
-    border-radius: 6px;
-    background-color: #393;
-    color: #fff;
-    text-align: center;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%;
-    border: 0;
-    transform: scaleX(-1);
-    margin-left: 0vw;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s;
+    margin-left: 73%;
   }
-} */
+}
+
+@media screen and (min-width: 5000px) {
+  .btnDiscount {
+    margin-left: 63%;
+  }
+}

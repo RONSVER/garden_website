@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import handsImg from "./assets/hands.svg";
 import styles from "./index.module.css";
 
-export async function postFetch(url, type, post) {
+export async function postFetch(url, type, post, errorState) {
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -14,6 +14,7 @@ export async function postFetch(url, type, post) {
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
+      errorState(`Error response`);
     }
 
     const data = await response.json();
@@ -28,6 +29,7 @@ function InputsDiscount() {
   const [oneInputValue, setOneInputValue] = useState("");
   const [twoInputValue, setTwoInputValue] = useState("");
   const [threeInputValue, setThreeInputValue] = useState("");
+  const [errorState, setErrorState] = useState("");
   const regexNum = /\d+(\.\d+)?/g;
   const regexLetter = /\p{L}+/gu;
   const regexLatin = /^[а-яА-ЯёЁ]+$/u;
@@ -74,7 +76,8 @@ function InputsDiscount() {
       postFetch(
         "http://localhost:3333/sale/send",
         "application/json",
-        JSON.stringify(requestData)
+        JSON.stringify(requestData),
+        setErrorState
       );
     }
   };
@@ -85,7 +88,7 @@ function InputsDiscount() {
       <div className={styles.secondInputDiscountDiv}>
         <img className={styles.imgDiscountInput} src={handsImg} alt="hands" />
         <form className={styles.inputsBtnDiscount}>
-          <p className={styles.pError}>{pError}</p>
+          <p className={styles.pError}>{`${pError}  ${errorState}`}</p>
 
           <input
             value={oneInputValue}
