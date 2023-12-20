@@ -1,0 +1,75 @@
+.ordersCards {
+  border-radius: var(--radius-big, 12px);
+  border: 1px solid var(--grey-divider, #ddd);
+  display: flex;
+}
+
+.imgOrder {
+  max-width: 15vw;
+}
+
+.pTitle {
+  color: var(--txt-black, #282828);
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.pCount {
+  display: flex;
+  width: 6vw;
+  height: 7vh;
+  justify-content: center;
+  align-items: center;
+  color: var(--txt-black, #282828);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.pPrice {
+  color: var(--txt-grey, #8b8b8b);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: line-through;
+}
+
+.pDiscontPrice {
+  color: var(--txt-black, #282828);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
+}
+
+.btnCount {
+  display: flex;
+  width: 4vw;
+  height: 7vh;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-small, 6px);
+  border: 1px solid var(--grey-divider, #ddd);
+}
+
+.btnDelete {
+}
+
+.countBox {
+  display: flex;
+}
+
+.aboutProductDiv {
+  display: flex;
+}
+
+.infoCards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}

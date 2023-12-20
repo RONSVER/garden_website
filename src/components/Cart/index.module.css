@@ -1,0 +1,86 @@
+.mainCart {
+  display: flex;
+  justify-content: center;
+  gap: 21vw;
+}
+
+.orderMenu {
+  display: flex;
+  padding: 2vh 2vw;
+  flex-direction: column;
+  gap: 3vh;
+  border-radius: var(--radius-big, 12px);
+  background: var(--light-grey, #f1f3f4);
+}
+
+.orderH3 {
+  color: var(--txt-black, #282828);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%; /* 44px */
+}
+
+.inputsOrdersBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputsOrders {
+  padding: 2vh 3vw;
+  padding-left: 2vw;
+  border-radius: 6px;
+  border: 1px solid var(--grey-divider, #ddd);
+  background: var(--white, #fff);
+  margin: 1vh 0vw;
+  color: white;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.infoOrder {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
+
+.pCart {
+  color: var(--txt-grey, #8b8b8b);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 130%;
+}
+
+.orderH2 {
+  color: var(--txt-black, #282828);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  margin-top: 10vh;
+}
+
+.btnOrder {
+  display: flex;
+  padding: 2vh 0vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-small, 6px);
+  background: #393;
+  border: none;
+  color: var(--txt-white, #fff);
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  transition: background 0.3s;
+}
+
+.btnOrder:hover {
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+}
