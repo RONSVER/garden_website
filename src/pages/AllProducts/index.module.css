@@ -2,19 +2,6 @@
   padding: 3vh 2vw;
 }
 
-.h2Sale {
-  color: #282828;
-  font-size: 3rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 110%;
-  padding-right: 2vw;
-}
-
-.h2AllSale {
-  margin-left: 8vw;
-}
-
 .divSale {
   display: flex;
   align-items: center;
@@ -167,6 +154,15 @@
   margin-top: 3vh;
 }
 
+.spanAllProductPrice {
+  font-size: 3rem;
+  margin: 0 1vw;
+  color: var(--txt-black, #282828);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
+}
+
 @media screen and (max-width: 910px) {
   .saleDiscount {
     left: 51%;
@@ -222,26 +218,5 @@
 @media screen and (max-width: 426px) {
   .divSale {
     flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 492px) {
-  .h2Sale {
-    font-size: 2rem;
-  }
-
-  .h2AllSale {
-    margin: 0;
-  }
-
-  .divSale {
-    justify-content: center;
-  }
-}
-
-@media screen and (min-width: 1483px) {
-  .h2AllSale {
-    margin: 0;
-    padding: 0 4vw;
   }
 }

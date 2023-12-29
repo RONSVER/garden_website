@@ -1,32 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { saleRequest } from "../../../requests/saleRequest";
-import { Link } from "react-router-dom";
 import { addToCard } from "../../../store/slices/cartSlice";
+import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
-export default function Sale({ show }) {
+const Sale = React.forwardRef(({ show }, ref) => {
+  const saleRef = useRef(null);
+  const dispatch = useDispatch();
   const saleData = useSelector((state) => state.sale.saleList);
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(saleRequest());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (ref) {
+      ref.current = saleRef.current;
+    }
+  }, [ref]);
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
 
   const fourArray = show
     ? saleData.filter((el) => el.discont_price).slice(0, 4)
     : saleData.filter((el) => el.discont_price);
 
   return (
-    <div className={styles.divSaleMain}>
+    <div ref={saleRef} id="saleSection" className={styles.divSaleMain}>
       <div className={styles.divSale}>
-        <h2 className={styles.h2Sale}>Sale</h2>
-        <div className={styles.lineRight}></div>
-        <button className={styles.btnAllSale}>
-          <Link className={styles.linkSale} to="/sales">
-            All sales
-          </Link>
-        </button>
+        <h2
+          className={
+            show ? styles.h2Sale : `${styles.h2Sale} ${styles.h2AllSale}`
+          }
+        >
+          {show ? "Sale" : "Discounted items"}
+        </h2>
+        {show ? <div className={styles.lineRight}></div> : ""}
+        {show ? (
+          <RouterLink to="/sales">
+            <button className={styles.btnAllSale} onClick={scrollToTop}>
+              All sales
+            </button>
+          </RouterLink>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={show ? styles.saleCardDiv : styles.saleCardDivShow}>
@@ -74,4 +96,6 @@ export default function Sale({ show }) {
       </div>
     </div>
   );
-}
+});
+
+export default Sale;

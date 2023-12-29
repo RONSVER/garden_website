@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
-
-// import { getAllCategories } from "./requests/categoriesRequest";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../../requests/categoriesRequest";
+import { Link } from "react-router-dom";
 
 function Categories({ show }) {
   const dispatch = useDispatch();
@@ -21,8 +20,12 @@ function Categories({ show }) {
         <h2 className={styles.h2Categories}>Categories</h2>
         {show ? (
           <>
-            <div className={styles.lineRight}></div>{" "}
-            <button className={styles.btnAllCategories}>All categories</button>
+            <div className={styles.lineRight}></div>
+            <button className={styles.btnAllCategories}>
+              <Link className={styles.linkCategories} to="/categories">
+                All categories
+              </Link>
+            </button>
           </>
         ) : (
           ""
@@ -31,14 +34,16 @@ function Categories({ show }) {
 
       <div className={styles.divMain}>
         {slicesArr.map((el) => (
-          <div key={el.id} className={styles.divCard}>
-            <img
-              className={styles.photoCategories}
-              src={`http://localhost:3333${el.image}`}
-              alt={`Category ${el.id}`}
-            />
-            <p className={styles.NameP}>{el.title}</p>
-          </div>
+          <Link to={`/categories/${el.id}`}>
+            <div key={el.id} className={styles.divCard}>
+              <img
+                className={styles.photoCategories}
+                src={`http://localhost:3333${el.image}`}
+                alt={`Category ${el.id}`}
+              />
+              <p className={styles.NameP}>{el.title}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

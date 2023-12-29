@@ -2,10 +2,14 @@
   border-radius: var(--radius-big, 12px);
   border: 1px solid var(--grey-divider, #ddd);
   display: flex;
+  margin-bottom: 2vh;
 }
 
 .imgOrder {
   max-width: 15vw;
+  border-radius: var(--radius-big, 12px) 0px 0px var(--radius-big, 12px);
+  border: 1px solid var(--grey-divider, #ddd);
+  background: lightgray 50% / cover no-repeat;
 }
 
 .pTitle {
@@ -28,6 +32,9 @@
   font-style: normal;
   font-weight: 600;
   line-height: 130%;
+  border-top: 1px solid var(--grey-divider, #ddd);
+  border-bottom: 1px solid var(--grey-divider, #ddd);
+  border-radius: 4px;
 }
 
 .pPrice {
@@ -37,6 +44,14 @@
   font-weight: 500;
   line-height: 130%;
   text-decoration: line-through;
+}
+
+.pDonSalePrice {
+  color: var(--txt-black, #282828);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
 }
 
 .pDiscontPrice {
@@ -55,21 +70,65 @@
   align-items: center;
   border-radius: var(--radius-small, 6px);
   border: 1px solid var(--grey-divider, #ddd);
+  background: white;
+  transition: background 0.3s;
+}
+
+.btnCount:hover {
+  cursor: pointer;
+  background: rgb(245, 244, 244);
 }
 
 .btnDelete {
+  font-size: 20px;
+}
+
+.btnDelete:hover {
+  cursor: pointer;
 }
 
 .countBox {
   display: flex;
+  padding: 0vw 1vw;
 }
 
 .aboutProductDiv {
   display: flex;
+  justify-content: start;
+  gap: 1vw;
+  align-items: end;
 }
 
 .infoCards {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+  width: 100%;
+}
+
+.upBoxCards {
+  display: flex;
+  padding: 0px 2vw;
+  justify-content: space-between;
+  gap: 20vw;
+  padding-left: 1vw;
+}
+
+@media screen and (max-width: 621px) {
+  .pDiscontPrice {
+    font-size: 2rem;
+  }
+
+  .aboutProductDiv {
+    justify-content: space-around;
+    gap: 8vw;
+  }
+
+  .pPrice {
+    font-size: 1rem;
+  }
+
+  .pCount {
+    font-size: 1rem;
+  }
 }

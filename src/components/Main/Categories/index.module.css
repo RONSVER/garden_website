@@ -62,6 +62,11 @@
   background-color: #e8e8e8;
 }
 
+.linkCategories {
+  text-decoration: none;
+  color: grey;
+}
+
 .divCard:hover {
   cursor: pointer;
 }
@@ -101,5 +106,42 @@
 
     padding-right: 2vw;
     margin-top: 2.5vh;
+  }
+}
+
+@media screen and (max-width: 956px) {
+  .divMain {
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .divCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 43vh;
+    max-width: 429px;
+    width: 46vw;
+  }
+
+  .photoCategories {
+    width: 100%;
+    max-width: none;
+  }
+
+  .divCategories {
+    justify-content: center;
+  }
+
+  .h2Categories {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .divCategories {
+    flex-direction: column;
   }
 }
