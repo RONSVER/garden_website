@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import { postFetch } from "../Main/InputsDiscount";
 import { Link } from "react-router-dom";
+import SuccessContent from "./SuccessContent";
 
 function Cart() {
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [pError, setPError] = useState("");
   const [oneInputValue, setOneInputValue] = useState("");
   const [twoInputValue, setTwoInputValue] = useState("");
@@ -57,7 +59,7 @@ function Cart() {
     } else if (!threeInputValue.match(regexGmail)) {
       setPError("This not gmail!");
     } else {
-      setPError("Great you have a discount!");
+      setIsSuccessModalOpen(true);
       const requestData = {
         name: oneInputValue,
         phone: twoInputValue,
@@ -72,6 +74,10 @@ function Cart() {
       );
     }
   };
+
+  function closeModal() {
+    setIsSuccessModalOpen(false);
+  }
 
   return (
     <div className={styles.mainCart}>
@@ -93,7 +99,7 @@ function Cart() {
           <>
             <div className={styles.productsCart}>
               {cart.map((el) => (
-                <CartItem key={el.id} {...el} />
+                <CartItem key={el.id} cartlength={cart.length} {...el} />
               ))}
             </div>
 
@@ -101,14 +107,14 @@ function Cart() {
               <h3 className={styles.orderH3}>Order details</h3>
               <div className={styles.infoOrder}>
                 <p className={styles.pCart}>
-                  3 items <br /> Total
+                  {cart.length} items <br /> Total
                 </p>
                 <h2 className={styles.orderH2}>{`$${
                   totalSum ? totalSum : ""
                 }`}</h2>
               </div>
 
-              <form className={styles.inputsOrdersBox}>
+              <form className={styles.inputsOrdersBox} onSubmit={validateInput}>
                 <p>{pError}</p>
 
                 <input
@@ -156,6 +162,7 @@ function Cart() {
           </div>
         )}
       </div>
+      {isSuccessModalOpen && <SuccessContent onClose={closeModal} />}
     </div>
   );
 }

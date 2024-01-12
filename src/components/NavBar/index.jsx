@@ -5,10 +5,12 @@ import styles from "./index.module.css";
 import Burger from "./Burger";
 import ModalNavBar from "./ModalNavBar/ModalNavBar";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function NavBar() {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [shouldShowNavBar, setShouldShowNavBar] = useState(true);
+  const cart = useSelector((state) => state.cart.list);
 
   const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
@@ -60,8 +62,11 @@ function NavBar() {
         </li>
       </ul>
 
-      <Link to="/cart">
-        <img className={styles.cartLogo} src={cartSvg} alt="Logo" />
+      <Link to="/cart" className={styles.cartContainer}>
+        <div className={styles.cartLogoContainer}>
+          <img className={styles.cartLogo} src={cartSvg} alt="Logo" />
+          {cart.length ? <p className={styles.countBall}>{cart.length}</p> : ""}
+        </div>
       </Link>
 
       <div className={styles.addaptivMain}>

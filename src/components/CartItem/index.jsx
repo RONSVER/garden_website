@@ -5,7 +5,15 @@ import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-function CartItem({ title, id, price, count, discont_price, image }) {
+function CartItem({
+  title,
+  id,
+  price,
+  count,
+  discont_price,
+  image,
+  cartlength,
+}) {
   const dispatch = useDispatch();
 
   return (

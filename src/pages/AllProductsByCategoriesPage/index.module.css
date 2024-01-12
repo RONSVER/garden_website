@@ -1,8 +1,21 @@
-.divSaleMain {
+.divProdByCategoriesMain {
   padding: 3vh 2vw;
 }
 
-.divSale {
+.h2ProdByCategories {
+  color: #282828;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  padding-right: 2vw;
+}
+
+.h2AllProdByCategories {
+  margin-left: 8vw;
+}
+
+.divProdByCategories {
   display: flex;
   align-items: center;
 }
@@ -14,7 +27,7 @@
   background: #ddd;
 }
 
-.btnAllSale {
+.btnAllProdByCategories {
   max-width: 128px;
   padding: 1vh 0vw;
   border-radius: 6px;
@@ -30,7 +43,7 @@
   width: 32vw;
 }
 
-.linkSale {
+.linkProdByCategories {
   color: #8b8b8a;
   font-size: 1rem;
   font-style: normal;
@@ -40,12 +53,12 @@
   text-decoration: none;
 }
 
-.btnAllSale:hover {
+.btnAllProdByCategories:hover {
   cursor: pointer;
   background-color: #e8e8e8;
 }
 
-.cardsSale {
+.cardsProdByCategories {
   height: 42vh;
   width: 100%;
   border-radius: var(--radius-big, 12px);
@@ -53,14 +66,15 @@
   max-height: 300px;
 }
 
-.saleCardDiv {
+.prodByCategoriesCardDiv {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2vw;
   margin-top: 3vh;
 }
 
-.saleCard:hover {
+.prodByCategoriesCard:hover {
   cursor: pointer;
 }
 
@@ -101,7 +115,7 @@
   background-color: rgb(0, 0, 0);
 }
 
-.saleDiscount {
+.prodByCategoriesDiscount {
   position: absolute;
   top: 8%;
   left: 90%;
@@ -113,7 +127,7 @@
   background: var(--green, #393);
 }
 
-.h3Cards {
+.h3ProdByCategories {
   color: var(--txt-black, #282828);
   font-size: 1rem;
   font-style: normal;
@@ -131,29 +145,6 @@
   text-decoration: line-through;
 }
 
-.spanPrice {
-  font-size: 3rem;
-  margin: 0 1vw;
-  color: var(--txt-black, #282828);
-  font-style: normal;
-  font-weight: 600;
-  line-height: 110%; /* 44px */
-}
-
-.saleImageContainer {
-  border-radius: var(--radius-big, 12px);
-  border: 1px solid var(--grey-divider, #ddd);
-  padding-bottom: 3vh;
-}
-
-.saleCardDivShow {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2vw;
-  margin-top: 3vh;
-}
-
 .spanAllProductPrice {
   font-size: 3rem;
   margin: 0 1vw;
@@ -163,40 +154,34 @@
   line-height: 110%;
 }
 
-.lineRightPage {
-  width: 100%;
-  height: 1px;
-  margin-top: 3.5vh;
-  background: #ddd;
-  max-width: 1vw;
-}
-
-.btnSale {
-  width: 100%;
-  max-width: 128px;
-  padding: 1vh 0vw;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  background: none;
-  margin-top: 3vh;
-  color: #8b8b8a;
-  font-size: 1rem;
+.spanPrice {
+  font-size: 3rem;
+  margin: 0 1vw;
+  color: var(--txt-black, #282828);
   font-style: normal;
-  font-weight: 500;
-  line-height: 126%;
-  transition: 1s;
+  font-weight: 600;
+  line-height: 110%; /* 44px */
 }
 
-.btnSale:hover {
-  cursor: pointer;
-  background-color: #e8e8e8;
+.prodByCategoriesImageContainer {
+  border-radius: var(--radius-big, 12px);
+  border: 1px solid var(--grey-divider, #ddd);
+  padding-bottom: 3vh;
+}
+
+.prodByCategoriesCardDivShow {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2vw;
+  margin-top: 3vh;
 }
 
 .btnsBox {
   display: flex;
   max-width: 31vw;
   align-items: center;
-  margin-left: 2vw;
+  margin-left: 4vw;
   padding: 0 2vw;
 }
 
@@ -206,7 +191,8 @@
   font-style: normal;
   font-weight: 700;
   line-height: 110%;
-  padding-right: 2vw;
+  padding: 0 6vw;
+  margin-top: 6vh;
 }
 
 .linksPageSale {
@@ -237,7 +223,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 3vw;
-  padding: 4vh 4.3vw;
+  padding: 4vh 6.3vw;
   padding-bottom: 0;
 }
 
@@ -305,21 +291,62 @@ input[type="checkbox"]:checked {
   border: 1px solid #4cae4c;
 }
 
-@media screen and (min-width: 1483px) {
-  .h2Sale {
-    margin: 0;
-    padding: 0 2vw;
-  }
+.lineRightPage {
+  width: 100%;
+  height: 1px;
+  margin-top: 3.5vh;
+  background: #ddd;
+  max-width: 1vw;
+}
+
+.btnAllSale {
+  max-width: 128px;
+  padding: 1vh 0vw;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: none;
+  margin-top: 3vh;
+  color: #8b8b8a;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126%;
+  transition: 1s;
+  width: 32vw;
+}
+
+.btnAllSale:hover {
+  cursor: pointer;
+  background-color: #e8e8e8;
 }
 
 @media screen and (max-width: 765px) {
   .btnsBox {
     display: none;
   }
+
+  .h2Sale {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  .sortParamDiv {
+    flex-direction: column;
+  }
+
+  .inputsDiv {
+    gap: 3vw;
+    flex-direction: column;
+  }
+
+  .listDiv {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 910px) {
-  .saleDiscount {
+  .prodByCategoriesDiscount {
     left: 51%;
   }
 
@@ -339,23 +366,8 @@ input[type="checkbox"]:checked {
     font-size: 2rem;
   }
 }
-
-@media screen and (max-width: 756px) {
-  .sortParamDiv {
-    flex-direction: column;
-  }
-
-  .inputsDiv {
-    gap: 3vw;
-    flex-direction: column;
-  }
-
-  .listDiv {
-    justify-content: center;
-  }
-}
 @media screen and (min-width: 2990px) {
-  .saleImageContainer {
+  .prodByCategoriesImageContainer {
     max-width: 302px;
   }
 
@@ -365,7 +377,7 @@ input[type="checkbox"]:checked {
 }
 
 @media screen and (min-width: 4485px) {
-  .h2Sale {
+  .h2ProdByCategories {
     font-size: 4rem;
     padding-right: 1vw;
     margin-top: 2.5vh;
@@ -376,7 +388,7 @@ input[type="checkbox"]:checked {
   }
 }
 @media screen and (max-width: 956px) {
-  .saleCardDiv {
+  .prodByCategoriesCardDiv {
     display: flex;
     justify-content: center;
     gap: 2vw;
@@ -386,7 +398,28 @@ input[type="checkbox"]:checked {
 }
 
 @media screen and (max-width: 426px) {
-  .divSale {
+  .divProdByCategories {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 492px) {
+  .h2ProdByCategories {
+    font-size: 2rem;
+  }
+
+  .h2AllProdByCategories {
+    margin: 0;
+  }
+
+  .divProdByCategories {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1483px) {
+  .h2AllProdByCategories {
+    margin: 0;
+    padding: 0 4vw;
   }
 }

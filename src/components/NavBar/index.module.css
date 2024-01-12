@@ -8,14 +8,43 @@
   position: absolute;
 }
 
+/* YourStyles.module.css */
+
+.cartContainer {
+  position: relative;
+}
+
+.cartLogo {
+  width: 40px;
+  height: auto;
+}
+
+.countBall {
+  position: absolute;
+  top: 39%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  background-color: #393;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+}
+
 .navBarDiv {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 9vw;
   max-width: 2000px;
-  padding: 1vh 2vh;
+  padding: 1vh 3vh;
   position: relative;
+  border-bottom: 1px solid;
 }
 
 .logo {
@@ -94,6 +123,10 @@
   .navBarDiv {
     justify-content: center;
     gap: 37vw;
+  }
+
+  .countBall {
+    display: none;
   }
 }
 

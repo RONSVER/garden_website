@@ -71,7 +71,7 @@
 
 .clearCart {
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   margin-left: 3vw;
   margin-top: 6vh;
 }

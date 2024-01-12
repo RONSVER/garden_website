@@ -7,20 +7,21 @@ export async function postFetch(url, type, post, errorState) {
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        contentType: type,
+        "Content-Type": type,
       },
       body: post,
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-      errorState(`Error response`);
+      console.error(`HTTP error! Status: ${response.status}`);
+      errorState("Error response");
+      return;
     }
 
     const data = await response.json();
-    console.log("Успешный POST-запрос:", data);
+    return data;
   } catch (error) {
-    console.error("Ошибка POST-запроса:", error.message);
+    errorState(`${error} error network`);
   }
 }
 

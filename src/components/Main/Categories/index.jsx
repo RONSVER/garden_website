@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategories } from "../../../requests/categoriesRequest";
 import { Link } from "react-router-dom";
+import { getAllCategories } from "../../../store/slices/categoriesSlice";
 
 function Categories({ show }) {
   const dispatch = useDispatch();
@@ -34,8 +34,12 @@ function Categories({ show }) {
 
       <div className={styles.divMain}>
         {slicesArr.map((el) => (
-          <Link to={`/categories/${el.id}`}>
-            <div key={el.id} className={styles.divCard}>
+          <Link
+            key={el.id}
+            className={styles.linkCategories}
+            to={`/categories/${el.id}`}
+          >
+            <div className={styles.divCard}>
               <img
                 className={styles.photoCategories}
                 src={`http://localhost:3333${el.image}`}

@@ -11,10 +11,6 @@
   padding-right: 2vw;
 }
 
-.h2AllSale {
-  margin-left: 8vw;
-}
-
 .divSale {
   display: flex;
   align-items: center;
@@ -167,6 +163,59 @@
   margin-top: 3vh;
 }
 
+.spanPriceSort {
+  color: var(--txt-black, #282828);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.inputSort {
+  width: 112px;
+  padding: 8px 16px;
+  border-radius: var(--radius-small, 6px);
+  border: 1px solid var(--grey-divider, #ddd);
+}
+
+.sortParamDiv {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3vw;
+  padding: 4vh 4.3vw;
+  padding-bottom: 0;
+}
+
+.inputsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+
+.listDiv {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.selector {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: flex;
+  width: 200px;
+  padding: 8px 8px 8px 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--radius-small, 6px);
+  border: 1px solid var(--grey-divider, #ddd);
+}
+
+.options {
+  background-color: #fff; /* Цвет фона для обычных option */
+  color: #8b8b8b; /* Цвет текста для обычных option */
+}
+
 @media screen and (max-width: 910px) {
   .saleDiscount {
     left: 51%;
@@ -186,6 +235,14 @@
 
   .spanPrice {
     font-size: 2rem;
+  }
+
+  .sortParamDiv {
+    flex-direction: column;
+  }
+
+  .listDiv {
+    justify-content: center;
   }
 }
 @media screen and (min-width: 2990px) {

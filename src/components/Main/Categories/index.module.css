@@ -1,6 +1,6 @@
 .divMain {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2vw;
   margin-top: 3vh;
 }
@@ -9,9 +9,16 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 43vh;
-  width: 17vw;
-  max-width: 297px;
+  align-items: center;
+}
+
+.photoCategories {
+  height: 300px;
+  width: 300px;
+  border-radius: var(--radius-big, 12px);
+  max-width: 300px;
+  max-height: 300px;
+  background-size: cover;
 }
 
 .divCategoriesMain {
@@ -23,6 +30,10 @@
 .divCategories {
   display: flex;
   align-items: center;
+}
+
+.linkCategories {
+  text-decoration: none;
 }
 
 .h2Categories {
@@ -71,14 +82,6 @@
   cursor: pointer;
 }
 
-.photoCategories {
-  height: 36vh;
-  width: 17vw;
-  border-radius: var(--radius-big, 12px);
-  max-width: 300px;
-  max-height: 300px;
-}
-
 .NameP {
   margin-top: 1vh;
   color: var(--txt-black, #282828);
@@ -87,12 +90,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 130%;
-}
-
-@media screen and (max-width: 604px) {
-  .NameP {
-    font-size: 1rem;
-  }
 }
 
 @media screen and (min-width: 2990px) {
@@ -110,25 +107,9 @@
 }
 
 @media screen and (max-width: 956px) {
-  .divMain {
-    display: grid;
-    grid-template-columns: repeat(1, 0fr);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .divCard {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 43vh;
-    max-width: 429px;
-    width: 46vw;
-  }
-
   .photoCategories {
-    width: 100%;
-    max-width: none;
+    width: 250px;
+    height: 250px;
   }
 
   .divCategories {
@@ -137,6 +118,28 @@
 
   .h2Categories {
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .divMain {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 794px) {
+  .divMain {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 604px) {
+  .NameP {
+    font-size: 1rem;
+  }
+
+  .divMain {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

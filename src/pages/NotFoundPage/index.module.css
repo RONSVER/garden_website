@@ -1,0 +1,55 @@
+.mainNotFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notFoundImg {
+  width: 47vw;
+}
+
+.messageBlock {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.h2NotFound {
+  color: var(--txt-black, #282828);
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.pNotFound {
+  color: var(--txt-grey, #8b8b8b);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.link {
+  color: var(--txt-white, #fff);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 130%;
+  text-decoration: none;
+}
+
+.btnDiscountInput {
+  padding: 2vh 3vw;
+  border-radius: 6px;
+  background-color: #393;
+  border: 0;
+  margin: 1vh 4vw;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btnDiscountInput:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+}
