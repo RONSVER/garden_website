@@ -8,8 +8,6 @@
   position: absolute;
 }
 
-/* YourStyles.module.css */
-
 .cartContainer {
   position: relative;
 }
@@ -44,7 +42,7 @@
   max-width: 2000px;
   padding: 1vh 3vh;
   position: relative;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #ddd;
 }
 
 .logo {
@@ -85,7 +83,6 @@
 
 .cartLogo {
   width: 30px;
-  /* display: none; */
 }
 
 .cartLogo:hover {

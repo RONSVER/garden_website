@@ -4,40 +4,24 @@ import { addToCard } from "../../store/slices/cartSlice";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
 import { saleRequest } from "../../store/slices/saleSlice";
+import { setNames } from "../../store/slices/namingSlice";
+import {
+  filterRequest,
+  includesChekedFilter,
+  includesSortFilter,
+  setMaxPriceFilter,
+  setMinPriceFilter,
+} from "../../store/slices/filterSlice";
 
 function AllProducts() {
   const dispatch = useDispatch();
-  const prodData = useSelector((state) => state.sale.saleList);
-  const [isChecked, setChecked] = useState(false);
-  const discountArr = isChecked
-    ? prodData.filter((el) => el.discont_price)
-    : prodData;
-
-  const [filterPrice, setFilterPrices] = useState({
-    minPrice: 0,
-    maxPrice: 0,
-  });
-
-  const [sortBy, setSortBy] = useState("by default");
-  const handleSortChange = (event) => {
-    setSortBy(event.target.value);
-  };
-
-  const filterData = discountArr.filter(
-    (el) =>
-      (!filterPrice.minPrice || el.price >= filterPrice.minPrice) &&
-      (!filterPrice.maxPrice || el.price <= filterPrice.maxPrice)
-  );
-
-  const finalArr =
-    sortBy === "priceLowToHigh"
-      ? filterData.sort((a, b) => a.price - b.price)
-      : sortBy === "priceHighToLow"
-      ? filterData.sort((a, b) => b.price - a.price)
-      : filterData;
+  const listData = useSelector((state) => state.filter.list.data);
+  const isChecked = useSelector((state) => state.filter.isChecked);
+  const sortBy = useSelector((state) => state.filter.sortBy);
 
   useEffect(() => {
     dispatch(saleRequest());
+    dispatch(filterRequest("http://localhost:3333/products/all"));
   }, [dispatch]);
 
   return (
@@ -68,10 +52,7 @@ function AllProducts() {
             placeholder={"from"}
             min="0"
             onChange={(event) =>
-              setFilterPrices({
-                ...filterPrice,
-                minPrice: Number(event.target.value),
-              })
+              dispatch(setMinPriceFilter(Number(event.target.value)))
             }
           />
           <input
@@ -80,10 +61,7 @@ function AllProducts() {
             placeholder={"to"}
             min="0"
             onChange={(event) =>
-              setFilterPrices({
-                ...filterPrice,
-                maxPrice: Number(event.target.value),
-              })
+              dispatch(setMaxPriceFilter(Number(event.target.value)))
             }
           />
 
@@ -96,7 +74,7 @@ function AllProducts() {
               id="myCheckbox"
               checked={isChecked}
               onChange={() => {
-                setChecked(!isChecked);
+                dispatch(includesChekedFilter(isChecked));
               }}
               className={styles.checkboxInput}
             />
@@ -123,7 +101,9 @@ function AllProducts() {
             className={styles.selector}
             id="sortBy"
             value={sortBy}
-            onChange={handleSortChange}
+            onChange={(event) =>
+              dispatch(includesSortFilter(event.target.value))
+            }
           >
             <option className={styles.options} value="default">
               by default
@@ -139,10 +119,20 @@ function AllProducts() {
       </div>
 
       <div className={styles.saleCardDivShow}>
-        {finalArr.map((el) => (
-          <div className={`${styles.saleCard} ${styles.imageContainer}`}>
+        {listData.map((el) => (
+          <div
+            key={el.id}
+            className={`${styles.saleCard} ${styles.imageContainer}`}
+          >
             <div className={styles.saleImageContainer}>
-              <Link key={el.id} to={`/products/${el.id}`}>
+              <Link
+                onClick={() =>
+                  dispatch(
+                    setNames({ nameOne: "all products", nameTwo: "/products" })
+                  )
+                }
+                to={`/products/${el.id}`}
+              >
                 <img
                   style={{
                     borderBottomLeftRadius: 0,

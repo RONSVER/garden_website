@@ -1,27 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCard } from "../../../store/slices/cartSlice";
-import { Link as RouterLink } from "react-router-dom";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-import { saleRequest } from "../../../store/slices/saleSlice";
+import { Link, Link as RouterLink } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
+import { setNames } from "../../../store/slices/namingSlice";
+import {
+  filterRequest,
+  includesSortFilter,
+  setMaxPriceFilter,
+  setMinPriceFilter,
+} from "../../../store/slices/filterSlice";
 
 const Sale = React.forwardRef(({ show }, ref) => {
   const saleRef = useRef(null);
   const dispatch = useDispatch();
-  const saleData = useSelector((state) => state.sale.saleList);
-  const [filterPrice, setFilterPrices] = useState({
-    minPrice: 0,
-    maxPrice: 0,
-  });
-
-  const [sortBy, setSortBy] = useState("by default");
-  const handleSortChange = (event) => {
-    setSortBy(event.target.value);
-  };
+  const sortBy = useSelector((state) => state.filter.sortBy);
+  const listData = useSelector((state) => state.filter.list.data);
 
   useEffect(() => {
-    dispatch(saleRequest());
+    dispatch(filterRequest("http://localhost:3333/products/all"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -35,25 +33,8 @@ const Sale = React.forwardRef(({ show }, ref) => {
   };
 
   const fourArray = show
-    ? saleData.filter((el) => el.discont_price).slice(0, 4)
-    : saleData.filter((el) => el.discont_price);
-
-  const sortedArr =
-    fourArray.length > 4
-      ? fourArray.filter(
-          (el) =>
-            (!filterPrice.minPrice ||
-              el.discont_price >= filterPrice.minPrice) &&
-            (!filterPrice.maxPrice || el.discont_price <= filterPrice.maxPrice)
-        )
-      : fourArray;
-
-  const finalArr =
-    sortBy === "priceLowToHigh"
-      ? sortedArr.sort((a, b) => a.price - b.price)
-      : sortBy === "priceHighToLow"
-      ? sortedArr.sort((a, b) => b.price - a.price)
-      : sortedArr;
+    ? listData.filter((el) => el.discont_price).slice(0, 4)
+    : listData.filter((el) => el.discont_price);
 
   return (
     <div ref={saleRef} id="saleSection" className={styles.divSaleMain}>
@@ -90,10 +71,7 @@ const Sale = React.forwardRef(({ show }, ref) => {
               placeholder={"from"}
               min="0"
               onChange={(event) =>
-                setFilterPrices({
-                  ...filterPrice,
-                  minPrice: Number(event.target.value),
-                })
+                dispatch(setMinPriceFilter(Number(event.target.value)))
               }
             />
             <input
@@ -102,10 +80,7 @@ const Sale = React.forwardRef(({ show }, ref) => {
               placeholder={"to"}
               min="0"
               onChange={(event) =>
-                setFilterPrices({
-                  ...filterPrice,
-                  maxPrice: Number(event.target.value),
-                })
+                dispatch(setMaxPriceFilter(Number(event.target.value)))
               }
             />
           </div>
@@ -117,7 +92,9 @@ const Sale = React.forwardRef(({ show }, ref) => {
               className={styles.selector}
               id="sortBy"
               value={sortBy}
-              onChange={handleSortChange}
+              onChange={(event) =>
+                dispatch(includesSortFilter(event.target.value))
+              }
             >
               <option className={styles.options} value="default">
                 by default
@@ -134,21 +111,30 @@ const Sale = React.forwardRef(({ show }, ref) => {
       )}
 
       <div className={show ? styles.saleCardDiv : styles.saleCardDivShow}>
-        {finalArr.map((el) => (
+        {fourArray.map((el) => (
           <div
             key={el.id}
             className={`${styles.saleCard} ${styles.imageContainer}`}
           >
             <div className={styles.saleImageContainer}>
-              <img
-                style={{
-                  borderBottomLeftRadius: 0,
-                  borderBottomRightRadius: 0,
-                }}
-                className={styles.cardsSale}
-                src={`http://localhost:3333${el.image}`}
-                alt="imgCardSale"
-              ></img>
+              <Link
+                onClick={() =>
+                  dispatch(
+                    setNames({ nameOne: "all sales", nameTwo: "/sales" })
+                  )
+                }
+                to={`/products/${el.id}`}
+              >
+                <img
+                  style={{
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                  }}
+                  className={styles.cardsSale}
+                  src={`http://localhost:3333${el.image}`}
+                  alt="imgCardSale"
+                ></img>
+              </Link>
               {el.discont_price && (
                 <span className={styles.saleDiscount}>
                   -

@@ -22,7 +22,7 @@
   font-size: 2em;
   font-style: normal;
   font-weight: 500;
-  line-height: 130%; /* 26px */
+  line-height: 130%;
   transition: color 0.2s;
   text-decoration: none;
 }

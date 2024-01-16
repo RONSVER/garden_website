@@ -1,4 +1,3 @@
-// NavBar.js
 import React from "react";
 import styles from "./index.module.css";
 import notFoundImg from "./assets/404.svg";

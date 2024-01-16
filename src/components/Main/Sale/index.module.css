@@ -91,7 +91,7 @@
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Плавное появление */
+  transition: opacity 0.3s ease-in-out;
   border-radius: var(--radius-small, 6px);
   background: var(--green, #393);
   display: flex;
@@ -146,7 +146,7 @@
   color: var(--txt-black, #282828);
   font-style: normal;
   font-weight: 600;
-  line-height: 110%; /* 44px */
+  line-height: 110%;
 }
 
 .saleImageContainer {
@@ -212,8 +212,8 @@
 }
 
 .options {
-  background-color: #fff; /* Цвет фона для обычных option */
-  color: #8b8b8b; /* Цвет текста для обычных option */
+  background-color: #fff;
+  color: #8b8b8b;
 }
 
 @media screen and (max-width: 910px) {

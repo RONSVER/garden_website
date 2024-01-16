@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -10,12 +10,17 @@ import {
 } from "../../store/slices/prodByCategoriesSlice";
 import styles from "./index.module.css";
 import { addToCard } from "../../store/slices/cartSlice";
+import { setNames } from "../../store/slices/namingSlice";
 
 function AllProductsByCategoriesPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const prodByCategoriesData = useSelector(
     (state) => state.prodBycategories.list.data.data
+  );
+
+  const prodByCategoriesDataCategory = useSelector(
+    (state) => state.prodBycategories.list.data.category
   );
 
   const isChecked = useSelector((state) => state.prodBycategories.isChecked);
@@ -26,35 +31,37 @@ function AllProductsByCategoriesPage() {
     dispatch(prodByCategoriesRequest(id));
   }, [dispatch]);
 
-  const categories = useSelector((state) => state.categories.categoriesList);
-
-  const category = categories.find((cat) => cat.id === parseInt(id, 10));
-
-  const categoryTitle = category ? category.title : "";
-
   return (
     <div>
       <div className={styles.btnsBox}>
-        <button className={styles.btnAllSale}>
-          <Link className={styles.linksPageSale} to="/">
+        <button className={styles.btnUpper}>
+          <Link className={styles.linksPage} to="/">
             Main page
           </Link>
         </button>
         <div className={styles.lineRightPage}></div>
-        <button className={styles.btnAllSale}>
-          <Link className={styles.linksPageSale} to="/categories">
+        <button className={styles.btnUpper}>
+          <Link className={styles.linksPage} to="/categories">
             categories
           </Link>
         </button>
         <div className={styles.lineRightPage}></div>
 
-        <button className={styles.btnAllSale}>{categoryTitle}</button>
+        <button className={styles.btnUpper}>
+          {prodByCategoriesDataCategory
+            ? prodByCategoriesDataCategory.title
+            : ""}
+        </button>
       </div>
 
       <div id="saleSection" className={styles.divSaleMain}>
         <div id="saleSection" className={styles.divSaleMain}>
           <div className={styles.divSale}>
-            <h2 className={styles.h2Sale}>{categoryTitle}</h2>
+            <h2 className={styles.h2Sale}>
+              {prodByCategoriesDataCategory
+                ? prodByCategoriesDataCategory.title
+                : ""}
+            </h2>
           </div>
         </div>
       </div>
@@ -141,15 +148,27 @@ function AllProductsByCategoriesPage() {
               className={`${styles.prodByCategoriesCard} ${styles.imageContainer}`}
             >
               <div className={styles.prodByCategoriesImageContainer}>
-                <img
-                  style={{
-                    borderBottomLeftRadius: 0,
-                    borderBottomRightRadius: 0,
-                  }}
-                  className={styles.cardsProdByCategories}
-                  src={`http://localhost:3333${el.image}`}
-                  alt="imgCardProdByCategories"
-                ></img>
+                <Link
+                  onClick={() =>
+                    dispatch(
+                      setNames({
+                        nameOne: prodByCategoriesDataCategory.title,
+                        nameTwo: `/categories/${prodByCategoriesDataCategory.id}`,
+                      })
+                    )
+                  }
+                  to={`/products/${el.id}`}
+                >
+                  <img
+                    style={{
+                      borderBottomLeftRadius: 0,
+                      borderBottomRightRadius: 0,
+                    }}
+                    className={styles.cardsProdByCategories}
+                    src={`http://localhost:3333${el.image}`}
+                    alt="imgCardProdByCategories"
+                  ></img>
+                </Link>
                 {el.discont_price && (
                   <span className={styles.prodByCategoriesDiscount}>
                     -

@@ -96,7 +96,7 @@
   border: none;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Плавное появление */
+  transition: opacity 0.3s ease-in-out;
   border-radius: var(--radius-small, 6px);
   background: var(--green, #393);
   display: flex;
@@ -160,7 +160,7 @@
   color: var(--txt-black, #282828);
   font-style: normal;
   font-weight: 600;
-  line-height: 110%; /* 44px */
+  line-height: 110%;
 }
 
 .prodByCategoriesImageContainer {
@@ -180,6 +180,7 @@
 .btnsBox {
   display: flex;
   max-width: 31vw;
+  min-width: 500px;
   align-items: center;
   margin-left: 4vw;
   padding: 0 2vw;
@@ -195,7 +196,7 @@
   margin-top: 6vh;
 }
 
-.linksPageSale {
+.linksPage {
   text-decoration: none;
   color: #8b8b8a;
   font-size: 1rem;
@@ -299,7 +300,7 @@ input[type="checkbox"]:checked {
   max-width: 1vw;
 }
 
-.btnAllSale {
+.btnUpper {
   max-width: 128px;
   padding: 1vh 0vw;
   border-radius: 6px;
@@ -315,7 +316,7 @@ input[type="checkbox"]:checked {
   width: 32vw;
 }
 
-.btnAllSale:hover {
+.btnUpper:hover {
   cursor: pointer;
   background-color: #e8e8e8;
 }

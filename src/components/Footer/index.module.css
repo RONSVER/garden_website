@@ -44,8 +44,6 @@
   padding-left: 1vw;
 }
 
-/* to p in address */
-
 .address .pFooter {
   font-size: 3rem;
 }
@@ -90,9 +88,6 @@
 .whatsapp {
   padding: 1vh 0;
   padding-left: 1vw;
-}
-
-.linkApps {
 }
 
 .map {

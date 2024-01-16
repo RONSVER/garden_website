@@ -1,0 +1,274 @@
+.imgOrder {
+  width: 700px;
+  margin: 7vh 2vw;
+  margin-top: 0;
+  margin-left: 0;
+  border-radius: var(--radius-big, 12px);
+}
+
+.infoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 44vw;
+  gap: 8vh;
+}
+
+.orderDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 6vh;
+}
+
+.priceBox {
+  display: flex;
+  justify-content: left;
+  gap: 2vw;
+  align-items: center;
+}
+
+.orderPrice {
+  color: var(--txt-black, #282828);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.orderDiscountPrice {
+  color: var(--txt-grey, #8b8b8b);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: line-through;
+  margin-top: 3.4vh;
+}
+
+.discountCount {
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+  color: #fff;
+  padding: 4px;
+  font-size: 1rem;
+  border-radius: var(--radius-small, 6px);
+  background: var(--green, #393);
+  margin-bottom: 3vh;
+}
+
+.btnBox {
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 2vw;
+}
+
+.infoCount {
+  display: flex;
+}
+
+.btnCount {
+  display: flex;
+  width: 4vw;
+  height: 7vh;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-small, 6px);
+  border: 1px solid var(--grey-divider, #ddd);
+  background: white;
+  transition: background 0.3s;
+  min-width: 58px;
+}
+
+.btnCount:hover {
+  cursor: pointer;
+  background: rgb(245, 244, 244);
+}
+
+.pOrder {
+  display: flex;
+  width: 6vw;
+  height: 7vh;
+  justify-content: center;
+  align-items: center;
+  color: var(--txt-black, #282828);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  border-top: 1px solid var(--grey-divider, #ddd);
+  border-bottom: 1px solid var(--grey-divider, #ddd);
+  border-radius: 4px;
+  min-width: 96px;
+}
+
+.btnAddCard {
+  display: flex;
+  padding: 2vh 10vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-small, 6px);
+  background: #393;
+  border: none;
+  color: var(--txt-white, #fff);
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  transition: background 0.3s;
+}
+
+.btnAddCard:hover {
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.displayNone {
+  display: none;
+}
+
+.upperBtnsBox {
+  display: flex;
+  max-width: 31vw;
+  min-width: 500px;
+  align-items: center;
+  margin-left: 4vw;
+  padding: 0 2vw;
+}
+
+.btnUpper {
+  max-width: 128px;
+  padding: 1vh 0vw;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: none;
+  margin-top: 3vh;
+  color: #8b8b8a;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126%;
+  transition: 1s;
+  width: 32vw;
+}
+
+.btnUpper:hover {
+  cursor: pointer;
+  background-color: #e8e8e8;
+}
+
+.lineRightPage {
+  width: 100%;
+  height: 1px;
+  margin-top: 3.5vh;
+  background: #ddd;
+  max-width: 1vw;
+}
+
+.linksPage {
+  text-decoration: none;
+  color: #8b8b8a;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 126%;
+  transition: 1s;
+}
+
+@media screen and (max-width: 1310px) {
+  .imgOrder {
+    width: 500px;
+  }
+
+  .btnAddCard {
+    padding: 2vh 8vw;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .imgOrder {
+    width: 400px;
+  }
+
+  .btnAddCard {
+    padding: 2vh 6vw;
+  }
+}
+
+@media screen and (max-width: 779px) {
+  .orderDiv {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgOrder {
+    margin: 6vh 0vw;
+    width: 300px;
+  }
+
+  .infoDiv {
+    max-width: 77vw;
+    align-items: center;
+  }
+
+  .btnBox {
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .upperBtnsBox {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1196px) {
+  .btnBox {
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+  }
+
+  .priceBox {
+    justify-content: center;
+  }
+
+  .pOrder {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .h2Order {
+    margin-top: 1vh;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 741px) {
+  .btnCount {
+    height: 11vh;
+  }
+
+  .pOrder {
+    height: 11vh;
+  }
+}
+
+@media screen and (min-width: 2242px) {
+  .btnAddCard {
+    padding: 1vh 7vw;
+  }
+
+  .btnCount {
+    height: 6vh;
+  }
+
+  .pOrder {
+    height: 6vh;
+  }
+}

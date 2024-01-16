@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const prodByCategoriesRequest = createAsyncThunk(
-  "prodByCategories/prodByCategoriesRequest",
-  async (id) => {
+export const filterRequest = createAsyncThunk(
+  "filter/filterRequest",
+  async (url) => {
     try {
-      const response = await fetch(`http://localhost:3333/categories/${id}`);
+      const response = await fetch(url);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -24,8 +24,8 @@ function filterByPrice(data, minPrice, maxPrice, isChecked) {
   });
 }
 
-const prodByCategoriesSlice = createSlice({
-  name: "prodByCategories",
+const filterSlice = createSlice({
+  name: "filter",
   initialState: {
     list: {
       data: [],
@@ -41,44 +41,44 @@ const prodByCategoriesSlice = createSlice({
   },
 
   reducers: {
-    includesCheked(state) {
+    includesChekedFilter(state) {
       state.isChecked = !state.isChecked;
-      state.list.data.data = filterByPrice(
-        state.list.modedData.data,
+      state.list.data = filterByPrice(
+        state.list.modedData,
         state.filterPrice.minPrice,
         state.filterPrice.maxPrice,
         state.isChecked
       );
     },
 
-    includesSort(state, action) {
+    includesSortFilter(state, action) {
       state.sortBy = action.payload;
 
-      if (state.list.data.data) {
+      if (state.list.data) {
         if (state.sortBy === "priceLowToHigh") {
-          state.list.data.data.sort((a, b) => a.price - b.price);
+          state.list.data.sort((a, b) => a.price - b.price);
         } else if (state.sortBy === "priceHighToLow") {
-          state.list.data.data.sort((a, b) => b.price - a.price);
+          state.list.data.sort((a, b) => b.price - a.price);
         } else {
-          state.list.data.data.sort((a, b) => a.id - b.id);
+          state.list.data.sort((a, b) => a.id - b.id);
         }
       }
     },
 
-    setMinPrice(state, action) {
+    setMinPriceFilter(state, action) {
       state.filterPrice.minPrice = parseFloat(action.payload);
-      state.list.data.data = filterByPrice(
-        state.list.modedData.data,
+      state.list.data = filterByPrice(
+        state.list.modedData,
         state.filterPrice.minPrice,
         state.filterPrice.maxPrice,
         state.isChecked
       );
     },
 
-    setMaxPrice(state, action) {
+    setMaxPriceFilter(state, action) {
       state.filterPrice.maxPrice = parseFloat(action.payload);
-      state.list.data.data = filterByPrice(
-        state.list.modedData.data,
+      state.list.data = filterByPrice(
+        state.list.modedData,
         state.filterPrice.minPrice,
         state.filterPrice.maxPrice,
         state.isChecked
@@ -88,21 +88,25 @@ const prodByCategoriesSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(prodByCategoriesRequest.pending, (state) => {
+      .addCase(filterRequest.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(prodByCategoriesRequest.fulfilled, (state, action) => {
+      .addCase(filterRequest.fulfilled, (state, action) => {
         state.status = "ready!";
         state.list.data = action.payload;
         state.list.modedData = action.payload;
       })
-      .addCase(prodByCategoriesRequest.rejected, (state) => {
+      .addCase(filterRequest.rejected, (state) => {
         state.status = "error";
       });
   },
 });
 
-export const { includesCheked, includesSort, setMinPrice, setMaxPrice } =
-  prodByCategoriesSlice.actions;
+export const {
+  includesChekedFilter,
+  includesSortFilter,
+  setMinPriceFilter,
+  setMaxPriceFilter,
+} = filterSlice.actions;
 
-export default prodByCategoriesSlice.reducer;
+export default filterSlice.reducer;
